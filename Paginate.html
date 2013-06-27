@@ -1,0 +1,41 @@
+<head>
+  <title>Paginate</title>
+</head>
+
+<body>
+  {{> template}}
+</body>
+
+<template name="template">
+	<div class='span10 pull-left'>
+    <article>
+    	<h3>Collections Sample</h3>
+
+			<table class='table table-bordered table-striped'>
+			  <thead>
+			  <tr>
+			    <th>Name</th>
+			    <th>Location</th>
+			    <th></th>
+			  </tr>
+			  </thead>
+		    {{#each collection}}
+		    <tr>
+		      <td class="span4">
+		        {{name}}
+		      </td>
+		      <td class="span5">
+		        {{address}}
+		      </td>
+		      <td class="span1">
+					<center><a class='btn btn-primary btn-small' href="">View</a></center>
+		      </td>
+		    </tr>
+		    {{/each}}
+
+			</table>
+		</article>
+	</div>
+
+
+</template>
