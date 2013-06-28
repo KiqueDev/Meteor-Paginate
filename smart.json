@@ -1,5 +1,11 @@
 {
+  "name": "paginate",
+  "description": "A light weight meteor collection pagination",
+  "homepage": "",
+  "author": "Enrique W. (KiqueDev)",
+  "version": "0.1",
+  "git": "",
   "packages": {
-    "router": {}
+  	"router": {}
   }
 }
