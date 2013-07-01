@@ -4,7 +4,7 @@ Meteor-Paginate
 Meteor package that provide developers a simple way to paginate collections.  
 
 <h2>Usage</h2>  
-mrt add paginate  
+<pre>mrt add paginate  </pre>
 
 -Make sure to publish and subscribe your collection before usage.   
 Example:  
