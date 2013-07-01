@@ -4,7 +4,7 @@
   "homepage": "",
   "author": "Enrique W. (KiqueDev)",
   "version": "0.1",
-  "git": "",
+  "git": "https://github.com/KiqueDev/Meteor-Paginate.git",
   "packages": {
   	"router": {}
   }
