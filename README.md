@@ -6,19 +6,18 @@ Meteor package that provide developers a simple way to paginate collections.
 <h2>Usage</h2>  
 mrt add paginate  
 
-
 -Make sure to publish and subscribe your collection before usage.   
 Example:  
 ///////////////////////////////////  
 ////// CLIENT SIDE  ///////////////  
 ///////////////////////////////////  
 //Creates collection  
-  Coll = new Meteor.Collection("coll");  
+<pre>  Coll = new Meteor.Collection("coll");  </pre>
 
 //Subscribe collection at autorun  
-  Meteor.autorun(function() {  
-		Meteor.subscribe("coll");  
-  });  
+<pre>	Meteor.autorun(function() {  </pre>
+<pre>		Meteor.subscribe("coll");  </pre>
+<pre>  });  </pre>
 
 //Create object paginate Paginate(Collection, int, string);   
   ******    var P = new Paginate({collection:Coll, perPage:5, name:'pages'});    ******  
