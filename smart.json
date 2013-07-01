@@ -1,7 +1,7 @@
 {
   "name": "paginate",
   "description": "A light weight meteor collection pagination",
-  "homepage": "",
+  "homepage": "https://github.com/KiqueDev/Meteor-Paginate",
   "author": "Enrique W. (KiqueDev)",
   "version": "0.1",
   "git": "https://github.com/KiqueDev/Meteor-Paginate.git",
