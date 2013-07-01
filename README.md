@@ -25,7 +25,7 @@ Example:
 <pre>Template.myTemplate.collection = function () {  
     //return Paginate.pages.results.find({});  
     return P.results.find({});  
-  };  </pre>
+};  </pre>
   
 ///////////////////////////////////  
 ////// SERVER SIDE  ///////////////  
