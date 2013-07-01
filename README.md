@@ -8,7 +8,7 @@ mrt add paginate
 
 
 -Make sure to publish and subscribe your collection before usage.   
-Example:
+Example:  
 ///////////////////////////////////  
 ////// CLIENT SIDE  ///////////////  
 ///////////////////////////////////  
@@ -17,7 +17,7 @@ Example:
 
 //Subscribe collection at autorun  
   Meteor.autorun(function() {  
-    Meteor.subscribe("coll");  
+		Meteor.subscribe("coll");  
   });  
 
 //Create object paginate Paginate(Collection, int, string);   
