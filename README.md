@@ -15,9 +15,9 @@ Example:
 <pre>  Coll = new Meteor.Collection("coll");  </pre>
 
 //Subscribe collection at autorun  
-<pre>	Meteor.autorun(function() {  </pre>
-<pre>		Meteor.subscribe("coll");  </pre>
-<pre>  });  </pre>
+<pre>	Meteor.autorun(function() {  
+       Meteor.subscribe("coll");  
+      });  </pre>
 
 //Create object paginate Paginate(Collection, int, string);   
   ******    var P = new Paginate({collection:Coll, perPage:5, name:'pages'});    ******  
