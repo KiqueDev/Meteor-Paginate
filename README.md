@@ -12,17 +12,17 @@ Example:
 ////// CLIENT SIDE  ///////////////  
 ///////////////////////////////////  
 //Creates collection  
-<pre>  Coll = new Meteor.Collection("coll");  </pre>
+<pre>Coll = new Meteor.Collection("coll");  </pre>
 
 //Subscribe collection at autorun  
-<pre>	Meteor.autorun(function() {  
+<pre>Meteor.autorun(function() {  
     Meteor.subscribe("coll");  
-  });  </pre>
+});  </pre>
 
 //Create object paginate Paginate(Collection, int, string);   
 <pre>var P = new Paginate({collection:Coll, perPage:5, name:'pages'}); </pre>
 
-<pre>  Template.myTemplate.collection = function () {  
+<pre>Template.myTemplate.collection = function () {  
     //return Paginate.pages.results.find({});  
     return P.results.find({});  
   };  </pre>
