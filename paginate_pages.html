@@ -1,9 +1,14 @@
 <template name="paginate_pages">
   <div class="pager">
-    <ul>
-	    <li class="previous" style="padding-right:50px;"><a style="float:none;" href="">Previous</a></li>
-	    {{ data.currentPage }} of {{ data.totalPages }}
-	    <li class="next" style="padding-left:50px;" ><a style="float:none;" href="">Next</a></li>
+    <ul class="pagerUL">
+	    <li class="previous" style="padding-right:30px;"><a style="float:none;" href="">Previous</a></li>
+	    	<select class="pagerSelect" style="width:50px; margin:10px;">
+	    		{{#each pages }}
+				<option value="{{index}}">{{index}}</option>
+				{{/each}}
+	        </select>  
+            of {{ tPages }}
+	    <li class="next" style="padding-left:30px;" ><a style="float:none;" href="">Next</a></li>
     </ul>
   </div>
 </template>
