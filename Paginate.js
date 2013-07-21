@@ -32,6 +32,26 @@ Paginate = function(collection, template, options){
     //console.log("RESULT " , Sessionget("results"));
     return Session.get("results");
   }
+
+  //ROUTING
+  Meteor.Router.add({ 
+    '/:pathName/:page': function(pathName, page) {
+      console.log('We are at path: ' + this.canonicalPath);
+      if(Paginate[pathName]){
+        var paginate = Paginate[pathName];
+        paginate.calculate(page);
+
+        Session.set("totalPages", paginate.totalPages());
+        Session.set("currentPage", page);
+        Session.set('paginateName', pathName);
+        Session.set('results', paginate.Results.find().fetch());
+    
+        return paginate.template;
+      }else{
+        alert("Error: No Routing");
+      }
+    }
+  });
 }
 
 // // TODO
@@ -39,7 +59,8 @@ Paginate = function(collection, template, options){
 //   return this.coll.insert(query);
 // };
 
-
+///////////////////////////////////////////
+//PAGINATE METHODS
 Paginate.prototype.previous = function () {
   $('.previous').click();
 };
@@ -67,7 +88,8 @@ Paginate.prototype.calculate = function(page){
   });
 }
 
-
+///////////////////////////////////////////
+//TEMPLATE PAGINATE_PAGES
 Template.paginate_pages.events({
   'click .previous': function(e){
     e.preventDefault();
@@ -96,7 +118,6 @@ Template.paginate_pages.events({
 
 });
 
-
 Template.paginate_pages.tPages = function () {
   return  Session.get("totalPages");;
 };
@@ -124,29 +145,3 @@ Template.paginate_pages.rendered = function () {
 
   $(".pagerSelect").val(cP);
 };
-
-
-
-// code to run on server at startup
-Meteor.Router.add({ 
-  '/:pathName/:page': function(pathName, page) {
-    console.log('We are at path: ' + this.canonicalPath);
-    if(Paginate[pathName]){
-      var paginate = Paginate[pathName];
-      paginate.calculate(page);
-
-      Session.set("totalPages", paginate.totalPages());
-      Session.set("currentPage", page);
-      Session.set('paginateName', pathName);
-      Session.set('results', paginate.Results.find().fetch());
-  
-      return paginate.template;
-    }else{
-      alert("Error: No Routing");
-    }
-  }
-});
-
-
-        
-
