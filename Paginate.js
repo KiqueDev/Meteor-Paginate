@@ -58,6 +58,7 @@ Paginate.prototype.totalPages = function(){
   return Math.ceil(this.coll.find({}).count() / this.perPage);
 }
 Paginate.prototype.calculate = function(page){
+  console.log("Calculating Pages...");
   this.Results.remove({});
   var items = this.coll.find({},{skip:(page-1)*this.perPage, limit:this.perPage}).fetch();
   var self = this;
@@ -125,27 +126,27 @@ Template.paginate_pages.rendered = function () {
 };
 
 
-Meteor.startup(function () {  
-  // code to run on server at startup
-  Meteor.Router.add({ 
-    '/:pathName/:page': function(pathName, page) {
-      console.log('we are at ' + this.canonicalPath);
-      if(Paginate[pathName]){
-        var paginate = Paginate[pathName];
-        paginate.calculate(page);
 
-        Session.set("totalPages", paginate.totalPages());
-        Session.set("currentPage", page);
-        Session.set('paginateName', pathName);
-        Session.set('results', paginate.Results.find().fetch());
-    
-        return paginate.template;
-      }else{
-        alert("Error: No Routing");
-      }
+// code to run on server at startup
+Meteor.Router.add({ 
+  '/:pathName/:page': function(pathName, page) {
+    console.log('We are at path: ' + this.canonicalPath);
+    if(Paginate[pathName]){
+      var paginate = Paginate[pathName];
+      paginate.calculate(page);
+
+      Session.set("totalPages", paginate.totalPages());
+      Session.set("currentPage", page);
+      Session.set('paginateName', pathName);
+      Session.set('results', paginate.Results.find().fetch());
+  
+      return paginate.template;
+    }else{
+      alert("Error: No Routing");
     }
-  });
+  }
 });
+
 
         
 
