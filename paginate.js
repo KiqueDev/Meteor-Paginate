@@ -1,5 +1,5 @@
-(function() {
-  var Paginate = function(collection, template, options){
+(function(root){
+  Paginate = function(collection, template, options){
     if(!collection){
       throw new Error("Collection not defined in Paginate");
     }
@@ -52,7 +52,7 @@
         }
       }
     });
-  }
+  };
 
   // // TODO
   // Paginate.prototype.insert = function(query) {
@@ -77,7 +77,7 @@
 
   Paginate.prototype.totalPages = function(){
     return Math.ceil(this.coll.find({}).count() / this.perPage);
-  }
+  };
   Paginate.prototype.calculate = function(page){
     console.log("Calculating Pages...");
     this.Results.remove({});
@@ -86,7 +86,7 @@
     items.forEach(function(item){
       self.Results.insert(item);
     });
-  }
+  };
 
   ///////////////////////////////////////////
   //TEMPLATE PAGINATE_PAGES
@@ -145,4 +145,6 @@
 
     $(".pagerSelect").val(cP);
   };
-}());
+
+  root.Paginate = Paginate;
+}(this));

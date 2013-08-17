@@ -3,7 +3,7 @@
   "description": "A light weight meteor collection pagination",
   "homepage": "https://github.com/KiqueDev/Meteor-Paginate",
   "author": "Enrique W. (KiqueDev)",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "git": "https://github.com/KiqueDev/Meteor-Paginate.git",
   "packages": {
   	"router": {}
